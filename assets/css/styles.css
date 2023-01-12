@@ -1,0 +1,8 @@
+@font-face {
+  font-family: agustina-font;
+  src: url(../fonts/Agustina-Signature.otf);
+}
+
+.agustina-font {
+  font-family: agustina-font;
+}
