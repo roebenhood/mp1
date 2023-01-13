@@ -3,6 +3,188 @@
   src: url(../fonts/Agustina-Signature.otf);
 }
 
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
 .agustina-font {
   font-family: agustina-font;
+}
+
+.content-section {
+  margin-top: 3.5em;
+  margin-bottom: 3.5em;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-title h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.work-experience-item {
+  margin-top: 36px;
+}
+.work-experience-item img {
+  height: 50%;
+  width: auto;
+}
+.work-experience-avatar-logoinc {
+  height: 40%;
+  width: auto;
+}
+
+/* experience */
+
+.experience-area {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+.single-experience-box {
+  text-align: center;
+  margin-bottom: 30px;
+  height: 40em;
+  position: relative;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0 50px 0 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-box-shadow: 3px 5px 25px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 5px 25px 0 rgba(0, 0, 0, 0.1);
+  padding: 60px 40px;
+}
+
+.single-experience-box::before {
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: 0.5s;
+  border: 2px solid transparent;
+  border-radius: 0 50px 0 0;
+}
+
+.single-experience-box h3 {
+  line-height: 1;
+  margin-bottom: 10px;
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.single-experience-box .sub-title {
+  color: #666666;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.single-experience-box .date {
+  display: inline-block;
+  color: #666666;
+  position: relative;
+  font-size: 18px;
+}
+
+.single-experience-box .line {
+  height: 1px;
+  background-color: #ededed;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.single-experience-box:hover {
+  border-radius: 0;
+}
+
+.single-experience-box:hover::before {
+  border-color: #97aae9;
+  border-radius: 0;
+}
+
+.experience-avatar {
+  height: 50%;
+  margin-bottom: 16px;
+}
+.experience-avatar-logoinc {
+  height: 50%;
+  width: 80%;
+}
+
+.company-info {
+  text-align: center;
+  vertical-align: middle;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item {
+  display: flex;
+  flex: 1;
+}
+
+.inner-text {
+  margin: auto;
+}
+
+.align-left {
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+  align-items: flex-end;
+}
+.align-center {
+  text-align: center;
+}
+.align-justify {
+  text-align: justify;
+}
+.margin-bot {
+  margin-bottom: 8px;
+}
+
+/* education */
+
+.education-logo img {
+  width: 128px;
+  height: 128;
+  border-radius: 50%;
+}
+
+.education-container {
+  display: flex;
+  margin-bottom: 100px;
+  margin-top: 36px;
+}
+
+.education-container h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.education-details {
+  margin-left: 36px;
+}
+
+/* Techs I use */
+.techs-icon {
+  font-size: 3.5rem;
+}
+
+.dev-techs li {
+  list-style: none;
+  display: inline-block;
+  padding-left: 1em;
 }
