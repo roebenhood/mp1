@@ -62,33 +62,171 @@
     <!-- END OF NAVBAR -->
 
     <!-- BANNER HERE -->
-    <div class="px-4 py-5 my-5 text-center">
-      <iconify-icon
-        icon="octicon:goal-16"
-        style="color: #f70303"
-        width="72"
-      ></iconify-icon>
-      <h1 class="display-5 fw-bold">Career Goals</h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">
-          Everyone wants to be in a stable position in their lifestyles. Some of
-          the major goals of a person’s career aspirations are to build
-          prestige, and obtain responsibilities, financial credits, and
-          authority. When a person achieves their intended outcomes, they
-          experience a sense of independence and freedom.
-        </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg px-4 gap-3"
-            fdprocessedid="3c2rdl"
-          >
-            Add Career Goal
-          </button>
+    <div class="container">
+      <div class="px-4 py-5 my-5 text-center">
+        <iconify-icon
+          icon="octicon:goal-16"
+          style="color: #f70303"
+          width="72"
+        ></iconify-icon>
+        <h1 class="display-5 fw-bold">Career Goals</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">
+            Everyone wants to be in a stable position in their lifestyles. Some
+            of the major goals of a person’s career aspirations are to build
+            prestige, and obtain responsibilities, financial credits, and
+            authority. When a person achieves their intended outcomes, they
+            experience a sense of independence and freedom.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Add Career Goal
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <!-- BANNER ENDS HERE -->
+
+    <!-- INPUT MODAL STARTS HERE -->
+
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">
+              Add Career Goal
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="was-validated" [formGroup]="fg" name="=myForm">
+              <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Goal</label>
+                <input
+                  [(ngModel)]="goal.id"
+                  formControlName="goalId"
+                  type="text"
+                  class="form-control is-invalid"
+                  id="validationTextarea"
+                  hidden
+                />
+                <input
+                  [(ngModel)]="goal.name"
+                  formControlName="goalName"
+                  type="text"
+                  class="form-control is-invalid"
+                  id="validationTextarea"
+                  placeholder="What is your next goal?"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="validationTextarea" class="form-label"
+                  >Description</label
+                >
+                <textarea
+                  [(ngModel)]="goal.description"
+                  formControlName="goalDescription"
+                  class="form-control is-invalid"
+                  id="validationTextarea"
+                  placeholder="Goal description"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="validationTextarea" class="form-label"
+                  >Target date to complete</label
+                >
+                <input
+                  [(ngModel)]="goal.targetDate"
+                  formControlName="targetDate"
+                  type="date"
+                  class="form-control is-invalid"
+                  id="validationTextarea"
+                  placeholder="What is your next goal?"
+                  required
+                />
+              </div>
+
+              <div class="form-check">
+                <input
+                  value="false"
+                  (click)="clickedRDbtn(false)"
+                  type="radio"
+                  class="form-check-input"
+                  id="no"
+                  name="isCompleted"
+                  checked
+                  (toggle)="(false)"
+                />
+                <label class="form-check-label" for="validationFormCheck2"
+                  >Goal to be completed</label
+                >
+              </div>
+              <div class="form-check mb-3">
+                <input
+                  value="true"
+                  (click)="clickedRDbtn(true)"
+                  type="radio"
+                  class="form-check-input"
+                  id="yes"
+                  name="isCompleted"
+                  (toggle)="(false)"
+                />
+                <label class="form-check-label" for="validationFormCheck3"
+                  >Goal Completed</label
+                >
+              </div>
+              <div class="mb-3" [hidden]="!isAccomplished">
+                <label for="validationTextarea" class="form-label"
+                  >Date Completed
+                </label>
+                <input
+                  [(ngModel)]="goal.completedDate"
+                  formControlName="accomplishedDate"
+                  type="date"
+                  class="form-control is-invalid"
+                  id="validationTextarea"
+                  value="01-01-2023"
+                  [required]="isAccomplished"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- INPUT MODAL ENDS HERE -->
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
@@ -110,5 +248,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script src="../assets/js/custom.js"></script>
   </body>
 </html>
