@@ -2,6 +2,11 @@ var myModal = document.getElementById('myModal');
 var myInput = document.getElementById('myInput');
 var isCompleted = false;
 
+function loadData(){
+    let showCompletedDate = document.getElementById("divCompleted");
+    showCompletedDate.style.display = "none"
+}
+
 function clickedRadio(val){
     let showCompletedDate = document.getElementById("divCompleted");
     isCompleted = val;
