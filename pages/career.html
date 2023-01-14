@@ -20,7 +20,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-xl">
-        <a class="navbar-brand agustina-font" href="#">
+        <a class="navbar-brand agustina-font" href="../index.html">
           <span class="agustina-font"><</span>
           <span class="agustina-font">Roeben Boyles</span>
           <span class="agustina-font">/></span>
@@ -192,11 +192,10 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form class="was-validated" [formGroup]="fg" name="=myForm">
+            <form class="was-validated" id="fg" name="=myForm">
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Goal</label>
                 <input
-                  [(ngModel)]="goal.id"
                   formControlName="goalId"
                   type="text"
                   class="form-control is-invalid"
@@ -204,11 +203,9 @@
                   hidden
                 />
                 <input
-                  [(ngModel)]="goal.name"
-                  formControlName="goalName"
+                  id="goalName"
                   type="text"
                   class="form-control is-invalid"
-                  id="validationTextarea"
                   placeholder="What is your next goal?"
                   required
                 />
@@ -218,10 +215,8 @@
                   >Description</label
                 >
                 <textarea
-                  [(ngModel)]="goal.description"
-                  formControlName="goalDescription"
+                  id="goalDescription"
                   class="form-control is-invalid"
-                  id="validationTextarea"
                   placeholder="Goal description"
                   required
                 ></textarea>
@@ -232,55 +227,51 @@
                   >Target date to complete</label
                 >
                 <input
-                  [(ngModel)]="goal.targetDate"
-                  formControlName="targetDate"
+                  id="targetDate"
                   type="date"
                   class="form-control is-invalid"
-                  id="validationTextarea"
                   placeholder="What is your next goal?"
                   required
                 />
               </div>
+              <form name="isCompletedForm">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="isCompleted"
+                    id="flexRadioDefault1"
+                    value="false"
+                    onclick="clickedRadio(false)"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    To be completed
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="isCompleted"
+                    value="true"
+                    id="flexRadioDefault2"
+                    onclick="clickedRadio(true)"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Completed
+                  </label>
+                </div>
+              </form>
 
-              <div class="form-check">
-                <input
-                  value="false"
-                  (click)="clickedRDbtn(false)"
-                  type="radio"
-                  class="form-check-input"
-                  id="no"
-                  name="isCompleted"
-                  checked
-                  (toggle)="(false)"
-                />
-                <label class="form-check-label" for="validationFormCheck2"
-                  >Goal to be completed</label
-                >
-              </div>
-              <div class="form-check mb-3">
-                <input
-                  value="true"
-                  (click)="clickedRDbtn(true)"
-                  type="radio"
-                  class="form-check-input"
-                  id="yes"
-                  name="isCompleted"
-                  (toggle)="(false)"
-                />
-                <label class="form-check-label" for="validationFormCheck3"
-                  >Goal Completed</label
-                >
-              </div>
-              <div class="mb-3" [hidden]="!isAccomplished">
+              <div id="divCompleted" class="mb-3" [hidden]="!isAccomplished">
                 <label for="validationTextarea" class="form-label"
                   >Date Completed
                 </label>
                 <input
-                  [(ngModel)]="goal.completedDate"
-                  formControlName="accomplishedDate"
+                  id="completedDate"
                   type="date"
                   class="form-control is-invalid"
-                  id="validationTextarea"
                   value="01-01-2023"
                   [required]="isAccomplished"
                 />
@@ -295,7 +286,14 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button
+              id="submit"
+              onclick="saveData()"
+              type="button"
+              class="btn btn-primary"
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>
